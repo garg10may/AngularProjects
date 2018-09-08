@@ -10,6 +10,9 @@ app.controller('myController', function($scope){
     $scope.dataset = ["apple", "banana", "kiwi"];
     $scope.addItem = function()  {
         $scope.dataset.push($scope.addMe);
+    };
+    $scope.removeItem = function(x) {
+        $scope.dataset.splice(x,1);
     }
 })
 </script>
@@ -17,8 +20,9 @@ app.controller('myController', function($scope){
 
 <body ng-app="myApp" ng-controller="myController">
 <ul>
-    <li ng-repeat="x in dataset">{{x}}</li>
-    <div ng-click="expression"></div>
+    <li ng-repeat="x in dataset">{{x}}
+    <span ng-click="removeItem($index)">&times;</span>
+    </li>
 </ul>
 <input ng-model="addMe">
 <button ng-click="addItem()">Add</button>
