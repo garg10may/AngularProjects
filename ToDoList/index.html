@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script>
 var app = angular.module("myApp", []);
 
@@ -18,14 +18,29 @@ app.controller('myController', function($scope){
 </script>
 
 
-<body ng-app="myApp" ng-controller="myController">
-<ul>
-    <li ng-repeat="x in dataset">{{x}}
+<body ng-app="myApp" ng-controller="myController"
+    class="w3-card-2 w3-margin">
+
+<header class="w3-container w3-light-grey w3-padding-16">
+    <h3>My Shopping List</h3>
+</header>
+<ul class="w3-ul">
+    <li ng-repeat="x in dataset" class="w3-padding-16">{{x}}
     <span ng-click="removeItem($index)">&times;</span>
     </li>
 </ul>
-<input ng-model="addMe">
-<button ng-click="addItem()">Add</button>
+
+
+<div class="w3=row w3-margin-top">
+    <div class="w3-container w3-light-grey w3-padding-16">
+        <div class="w3-col s10">
+            <input placeholder="Add shopping items" ng-model="addMe" class=w3-input w3-border w3-padding>
+        </div>
+        <div class="w3-col s2">
+            <button ng-click="addItem()" class="w3-btn w3-padding w3-green">Add</button>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
